@@ -13,6 +13,7 @@ driver = nonebot.get_driver()
 driver.register_adapter(Adapter)
 
 #nonebot.load_plugins("src/plugins")
+nonebot.load_all_plugins([],"src/plugins")
 
 if __name__ == "__main__":
     nonebot.run(app="bot:app")
