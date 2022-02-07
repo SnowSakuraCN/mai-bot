@@ -3,7 +3,7 @@ from collections import defaultdict
 from nonebot import on_command, on_regex
 from nonebot.typing import T_State
 from nonebot.adapters import Event, Bot
-from nonebot.adapters.cqhttp import Message
+from nonebot.adapters.onebot.x11 import Message
 
 from src.libraries.tool import hash
 from src.libraries.maimaidx_music import *
