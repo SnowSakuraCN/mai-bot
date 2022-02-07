@@ -3,7 +3,7 @@
 from collections import defaultdict
 
 import nonebot
-from nonebot.adapters.cqhttp import Bot as CQHTTPBot
+from nonebot.adapters.onebot import Bot as CQHTTPBot
 
 
 # Custom your logger
