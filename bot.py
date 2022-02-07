@@ -3,7 +3,7 @@
 from collections import defaultdict
 
 import nonebot
-from nonebot.adapters.onebot import Adapter
+from nonebot.adapters.onebot.v11 import Adapter
 
 
 # Custom your logger
