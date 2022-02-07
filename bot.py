@@ -3,7 +3,7 @@
 from collections import defaultdict
 
 import nonebot
-from nonebot.adapters.onebot import Bot as CQHTTPBot
+from nonebot.adapters.onebot import Adapter
 
 
 # Custom your logger
@@ -21,7 +21,7 @@ nonebot.init()
 app = nonebot.get_asgi()
 
 driver = nonebot.get_driver()
-driver.register_adapter("cqhttp", CQHTTPBot)
+driver.register_adapter(Adapter)
 driver.config.help_text = {}
 
 
