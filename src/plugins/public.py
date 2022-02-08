@@ -3,7 +3,7 @@ import re
 
 from PIL import Image
 from nonebot.matcher import Matcher
-from nonebot import on_command, on_message
+from nonebot import on_command, on_message, on_regex
 from nonebot.exception import IgnoredException
 from nonebot.params import Arg, CommandArg, ArgPlainText
 from nonebot.adapters import Message, Event, Bot
