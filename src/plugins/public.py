@@ -6,8 +6,7 @@ from nonebot.matcher import Matcher
 from nonebot import on_command, on_message
 from nonebot.exception import IgnoredException
 
-from nonebot.adapters.onebot.v11 import Message, Event, Bot
-from nonebot.adapters.onebot.v11 import PrivateMessageEvent
+from nonebot.adapters import Message, Event, Bot
 
 from src.libraries.image import *
 from src.libraries.tool import hash
