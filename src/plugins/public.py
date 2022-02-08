@@ -116,6 +116,7 @@ async def _(matcher: Matcher, event: Event):
         else:
             rand_result = song_txt(music_data.random())
         await spec_rand.send(rand_result)
-    #except Exception as e:
-        #print(e)
-        #await spec_rand.finish("随机命令错误，请检查语法")
+    """except Exception as e:
+        print(e)
+        await spec_rand.finish("随机命令错误，请检查语法")
+    """
