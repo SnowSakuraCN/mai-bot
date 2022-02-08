@@ -4,14 +4,21 @@ import re
 from PIL import Image
 from nonebot.matcher import Matcher
 from nonebot import on_command, on_message
+from nonebot.exception import IgnoredException
 from nonebot.adapters.onebot.v11 import Message, Event, Bot
+from nonebot.adapters.onebot.v11 import PrivateMessageEvent
 from src.libraries.image import *
 from random import randint
 
-no_private_msg = on_message(priority=1)
+no_private_msg = on_message(private_msg,priority=1)
+
+async def private_msg(event: PrivateMessageEvent) -> bool:
+        return event.sub_type != "friend"
+
 @no_private_msg.handle()
 async def _(matcher: Matcher):
-    stop_propagation()
+    raise IgnoredException("not reply group temp message")
+
 
 help = on_command('help')
 @help.handle()
