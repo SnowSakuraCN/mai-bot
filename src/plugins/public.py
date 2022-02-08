@@ -3,14 +3,17 @@ import re
 
 from PIL import Image
 from nonebot.matcher import Matcher
-from nonebot import on_command
+from nonebot import on_command, on_message
 from nonebot.adapters.onebot.v11 import Message, Event, Bot
 from src.libraries.image import *
 from random import randint
 
+no_private_msg = on_message(priority=1)
+@no_private_msg.handle()
+async def _(matcher: Matcher):
+    stop_propagation()
+
 help = on_command('help')
-
-
 @help.handle()
 async def _(matcher: Matcher):
     help_str = '''可用命令如下：
@@ -29,3 +32,4 @@ XXXmaimaiXXX什么 随机一首歌
             "file": f"base64://{str(image_to_base64(text_to_image(help_str)), encoding='utf-8')}"
         }
     }]))
+
