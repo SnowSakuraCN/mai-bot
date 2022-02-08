@@ -77,7 +77,7 @@ inner_level = on_command('inner_level ', aliases={'定数查歌 '})
 
 @inner_level.handle()
 async def _(matcher: Matcher,args: Message = CommandArg()):
-    argv = str(Message.get_message()).strip().split(" ")
+    argv = str(args.extract_plain_text()).strip().split(" ")
     if len(argv) > 2 or len(argv) == 0:
         await matcher.finish("命令格式为\n定数查歌 <定数>\n定数查歌 <定数下限> <定数上限>")
         return
