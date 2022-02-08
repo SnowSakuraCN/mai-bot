@@ -99,7 +99,6 @@ async def _(matcher: Matcher, event: Event):
     level_labels = ['绿', '黄', '红', '紫', '白']
     regex = "随个((?:dx|sd|标准))?([绿黄红紫白]?)([0-9]+\+?)"
     res = re.match(regex, str(event.get_message()).lower())
-    try:
         if res.groups()[0] == "dx":
             tp = ["DX"]
         elif res.groups()[0] == "sd" or res.groups()[0] == "标准":
@@ -116,7 +115,3 @@ async def _(matcher: Matcher, event: Event):
         else:
             rand_result = song_txt(music_data.random())
         await spec_rand.send(rand_result)
-    """except Exception as e:
-        print(e)
-        await spec_rand.finish("随机命令错误，请检查语法")
-    """
