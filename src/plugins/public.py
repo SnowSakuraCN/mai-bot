@@ -99,19 +99,19 @@ async def _(matcher: Matcher, event: Event):
     level_labels = ['绿', '黄', '红', '紫', '白']
     regex = "随个((?:dx|sd|标准))?([绿黄红紫白]?)([0-9]+\+?)"
     res = re.match(regex, str(event.get_message()).lower())
-        if res.groups()[0] == "dx":
-            tp = ["DX"]
-        elif res.groups()[0] == "sd" or res.groups()[0] == "标准":
-            tp = ["SD"]
-        else:
-            tp = ["SD", "DX"]
-        level = res.groups()[2]
-        if res.groups()[1] == "":
-            music_data = total_list.filter(level=level, type=tp)
-        else:
-            music_data = total_list.filter(level=level, diff=['绿黄红紫白'.index(res.groups()[1])], type=tp)
-        if len(music_data) == 0:
-            rand_result = "没有这样的乐曲哦。"
-        else:
-            rand_result = song_txt(music_data.random())
-        await spec_rand.send(rand_result)
+    if res.groups()[0] == "dx":
+        tp = ["DX"]
+    elif res.groups()[0] == "sd" or res.groups()[0] == "标准":
+        tp = ["SD"]
+    else:
+        tp = ["SD", "DX"]
+    level = res.groups()[2]
+    if res.groups()[1] == "":
+        music_data = total_list.filter(level=level, type=tp)
+    else:
+        music_data = total_list.filter(level=level, diff=['绿黄红紫白'.index(res.groups()[1])], type=tp)
+    if len(music_data) == 0:
+        rand_result = "没有这样的乐曲哦。"
+    else:
+        rand_result = song_txt(music_data.random())
+    await spec_rand.send(rand_result)
