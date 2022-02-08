@@ -93,9 +93,7 @@ async def _(matcher: Matcher,args: Message = CommandArg()):
         s += f"{elem[0]}. {elem[1]} {elem[3]} {elem[4]}({elem[2]})\n"
     await matcher.finish(s.strip())
 
-    spec_rand = on_regex(r"^随个(?:dx|sd|标准)?[绿黄红紫白]?[0-9]+\+?")
-
-
+spec_rand = on_regex(r"^随个(?:dx|sd|标准)?[绿黄红紫白]?[0-9]+\+?")
 @spec_rand.handle()
 async def _(matcher: Matcher, event: Event):
     level_labels = ['绿', '黄', '红', '紫', '白']
