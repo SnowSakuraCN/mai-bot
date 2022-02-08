@@ -11,14 +11,6 @@ from src.libraries.image import *
 from random import randint
 
 
-async def private_msg(event: PrivateMessageEvent) -> bool:
-        return event.sub_type != "friend"
-no_private_msg = on_message(private_msg,priority=1)
-@no_private_msg.handle()
-async def _(matcher: Matcher):
-    raise IgnoredException("not reply group temp message")
-
-
 help = on_command('help')
 @help.handle()
 async def _(matcher: Matcher):
