@@ -1,4 +1,4 @@
-import random
+from collections import defaultdict
 import re
 
 from PIL import Image
